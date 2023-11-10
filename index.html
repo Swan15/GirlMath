@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Girl Math</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <main>
+      <h1>
+        Girl Math
+      </h1>
+      <form id="calcForm">
+      <label>
+        Dress cost
+      </label>
+      <input id="dress">
+        </input>
+      <label>
+        Amount of acceptable wears
+      </label>
+      <input id="wears">
+        </input>
+      <button id="button" type="submit">
+        Calculate actual cost
+      </button>
+      </form>
+      <span id="cost">
+      </span>
+    </main>
+    <script>
+      let loginForm = document.getElementById("calcForm");
+      loginForm.addEventListener("submit", (e)=> {
+        e.preventDefault()
+        try {
+          const dress = document.getElementById('dress')
+          const wears = document.getElementById('wears')
+          const val = parseInt(dress.value)/parseInt(wears.value)
+          if (isNaN(val)) {
+            throw new Error('Please enter only numbers')
+          }
+        document.getElementById("cost").innerText = `$${val} or ${val/5} iced lattes`
+        } catch (err) {
+          alert('Please enter only numbers')
+        }
+      })
+    </script>
+  </body>
+</html>
